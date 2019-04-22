@@ -28,4 +28,17 @@ public class PlayerScript : MonoBehaviour
 
         transform.position = temp;
     }
+
+    private void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.tag == "Enemy")
+        {
+            GameManager.instance.PlayerDied();
+        }
+
+        if (target.tag == "Goal")
+        {
+            GameManager.instance.PlayerReachedGoal();
+        }
+    }
 }
